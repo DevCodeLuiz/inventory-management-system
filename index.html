@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Inventory Management System</title>
+    <title>Sistema de Gestão de Estoque</title>
 
     <style>
         * {
@@ -364,29 +363,29 @@
 
     <header>
         <div>
-            <h1>📦 Inventory Management</h1>
-            <p>Product management and inventory control system</p>
+            <h1>📦 Gestão de Estoque</h1>
+            <p>Sistema de gerenciamento e controle de estoque</p>
         </div>
 
         <button onclick="openProductModal()">
-            + Add Product
+            + Adicionar Produto
         </button>
     </header>
 
     <section class="dashboard">
 
         <div class="card">
-            <h3>Total Products</h3>
+            <h3>Total de Produtos</h3>
             <strong id="totalProducts">0</strong>
         </div>
 
         <div class="card">
-            <h3>Total Stock</h3>
+            <h3>Unidades em Estoque</h3>
             <strong id="totalStock">0</strong>
         </div>
 
         <div class="card">
-            <h3>Low Stock</h3>
+            <h3>Estoque Baixo</h3>
             <strong id="lowStock">0</strong>
         </div>
 
@@ -395,13 +394,13 @@
     <section class="products">
 
         <div class="section-header">
-            <h2>Products</h2>
+            <h2>Produtos</h2>
 
             <input
                 type="search"
                 id="search"
                 class="search"
-                placeholder="Search products..."
+                placeholder="Buscar produtos..."
                 oninput="renderProducts()"
             >
         </div>
@@ -411,12 +410,12 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
+                        <th>Produto</th>
+                        <th>Categoria</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
                         <th>Status</th>
-                        <th>Actions</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
 
@@ -426,7 +425,7 @@
         </div>
 
         <div id="emptyProducts" class="empty">
-            No products registered yet.
+            Nenhum produto cadastrado.
         </div>
 
     </section>
@@ -434,23 +433,23 @@
     <section class="products">
 
         <div class="section-header">
-            <h2>📋 Movement History</h2>
+            <h2>📋 Histórico de Movimentações</h2>
 
             <button class="btn-secondary" onclick="clearHistory()">
-                Clear History
+                Limpar Histórico
             </button>
         </div>
 
         <div id="historyList" class="history-list"></div>
 
         <div id="emptyHistory" class="empty">
-            No inventory movements yet.
+            Nenhuma movimentação registrada.
         </div>
 
     </section>
 
     <footer>
-        Inventory Management System · Developed by DevCodeLuiz
+        Sistema de Gestão de Estoque · Desenvolvido por DevCodeLuiz
     </footer>
 
 </div>
@@ -461,14 +460,14 @@
 
     <div class="modal-content">
 
-        <h2 id="productModalTitle">Add Product</h2>
+        <h2 id="productModalTitle">Adicionar Produto</h2>
 
         <form id="productForm">
 
             <input type="hidden" id="productId">
 
             <div class="form-group">
-                <label for="productName">Product Name</label>
+                <label for="productName">Nome do Produto</label>
                 <input id="productName" required maxlength="100">
             </div>
 
@@ -489,7 +488,7 @@
             </div>
 
             <div class="form-group">
-                <label for="productQuantity">Initial Quantity</label>
+                <label for="productQuantity">Quantidade Inicial</label>
                 <input
                     id="productQuantity"
                     type="number"
@@ -500,7 +499,7 @@
             </div>
 
             <div class="form-group">
-                <label for="productMinimum">Minimum Stock</label>
+                <label for="productMinimum">Estoque Mínimo</label>
                 <input
                     id="productMinimum"
                     type="number"
@@ -513,7 +512,7 @@
             <div class="form-actions">
 
                 <button type="submit">
-                    Save Product
+                    Salvar Produto
                 </button>
 
                 <button
@@ -521,7 +520,7 @@
                     class="btn-secondary"
                     onclick="closeModal('productModal')"
                 >
-                    Cancel
+                    Cancelar
                 </button>
 
             </div>
@@ -538,18 +537,18 @@
 
     <div class="modal-content">
 
-        <h2 id="movementTitle">Stock Movement</h2>
+        <h2 id="movementTitle">Movimentação de Estoque</h2>
 
         <form id="movementForm">
 
             <input type="hidden" id="movementProductId">
 
             <div class="form-group">
-                <label for="movementType">Movement Type</label>
+                <label for="movementType">Tipo de Movimentação</label>
 
                 <select id="movementType" required>
-                    <option value="entry">Stock Entry</option>
-                    <option value="exit">Stock Exit</option>
+                    <option value="entry">Entrada de Estoque</option>
+                    <option value="exit">Saída de Estoque</option>
                 </select>
             </div>
 
@@ -566,19 +565,19 @@
             </div>
 
             <div class="form-group">
-                <label for="movementNote">Note (optional)</label>
+                <label for="movementNote">Observação (opcional)</label>
 
                 <input
                     id="movementNote"
                     maxlength="150"
-                    placeholder="Purchase, sale, adjustment..."
+                    placeholder="Compra, venda, ajuste..."
                 >
             </div>
 
             <div class="form-actions">
 
                 <button type="submit">
-                    Confirm Movement
+                    Confirmar Movimentação
                 </button>
 
                 <button
@@ -586,7 +585,7 @@
                     class="btn-secondary"
                     onclick="closeModal('movementModal')"
                 >
-                    Cancel
+                    Cancelar
                 </button>
 
             </div>
@@ -620,7 +619,7 @@
             localStorage.setItem(STORAGE_PRODUCTS, JSON.stringify(products));
             localStorage.setItem(STORAGE_HISTORY, JSON.stringify(history));
         } catch {
-            alert("Unable to save data in this browser.");
+            alert("Não foi possível salvar os dados neste navegador.");
         }
     }
 
@@ -655,20 +654,20 @@
     function getStatus(product) {
         if (product.quantity === 0) {
             return {
-                text: "Out of stock",
+                text: "Sem estoque",
                 className: "out"
             };
         }
 
         if (product.quantity <= product.minimum) {
             return {
-                text: "Low stock",
+                text: "Estoque baixo",
                 className: "low"
             };
         }
 
         return {
-            text: "In stock",
+            text: "Em estoque",
             className: "ok"
         };
     }
@@ -735,23 +734,23 @@
 
                         <button
                             class="btn-small btn-blue"
-                            onclick="openMovementModal('${product.id}')"
+                            onclick="openMovimentarModal('${product.id}')"
                         >
-                            Movement
+                            Movimentar
                         </button>
 
                         <button
                             class="btn-small btn-secondary"
                             onclick="editProduct('${product.id}')"
                         >
-                            Edit
+                            Editar
                         </button>
 
                         <button
                             class="btn-small btn-danger"
                             onclick="deleteProduct('${product.id}')"
                         >
-                            Delete
+                            Excluir
                         </button>
 
                     </div>
@@ -780,8 +779,8 @@
             const typeClass = item.type === "entry" ? "entry" : "exit";
 
             const typeText = item.type === "entry"
-                ? "Stock Entry"
-                : "Stock Exit";
+                ? "Entrada de Estoque"
+                : "Saída de Estoque";
 
             const date = new Date(item.date).toLocaleString("pt-BR");
 
@@ -818,7 +817,7 @@
         document.getElementById("productId").value = "";
 
         document.getElementById("productModalTitle").textContent =
-            "Add Product";
+            "Adicionar Produto";
 
         document.getElementById("productModal").classList.add("active");
     }
@@ -844,7 +843,7 @@
             product.minimum;
 
         document.getElementById("productModalTitle").textContent =
-            "Edit Product";
+            "Editar Produto";
 
         document.getElementById("productModal").classList.add("active");
     }
@@ -888,7 +887,7 @@
                 quantity < 0 ||
                 minimum < 0
             ) {
-                alert("Please enter valid product information.");
+                alert("Preencha os dados do produto corretamente.");
                 return;
             }
 
@@ -913,14 +912,14 @@
                         name,
                         type: difference > 0 ? "entry" : "exit",
                         quantity: Math.abs(difference),
-                        note: "Quantity adjustment during editing",
+                        note: "Ajuste de quantidade durante a edição",
                         date: new Date().toISOString()
                     });
                 }
 
                 product.quantity = quantity;
 
-                showToast("Product updated successfully!");
+                showToast("Produto atualizado com sucesso!");
             } else {
                 const product = {
                     id: crypto.randomUUID(),
@@ -941,12 +940,12 @@
                         name,
                         type: "entry",
                         quantity,
-                        note: "Initial stock",
+                        note: "Estoque inicial",
                         date: new Date().toISOString()
                     });
                 }
 
-                showToast("Product added successfully!");
+                showToast("Produto cadastrado com sucesso!");
             }
 
             saveData();
@@ -956,7 +955,7 @@
         }
     );
 
-    function openMovementModal(id) {
+    function openMovimentarModal(id) {
         const product = products.find(item => item.id === id);
 
         if (!product) return;
@@ -966,7 +965,7 @@
         document.getElementById("movementProductId").value = id;
 
         document.getElementById("movementTitle").textContent =
-            "Stock Movement: " + product.name;
+            "Movimentação de Estoque: " + product.name;
 
         document.getElementById("movementModal").classList.add("active");
     }
@@ -996,12 +995,12 @@
                 .trim();
 
             if (!Number.isInteger(quantity) || quantity <= 0) {
-                alert("Enter a valid quantity.");
+                alert("Informe uma quantidade válida.");
                 return;
             }
 
             if (type === "exit" && quantity > product.quantity) {
-                alert("Insufficient stock for this movement.");
+                alert("Estoque insuficiente para essa movimentação.");
                 return;
             }
 
@@ -1026,7 +1025,7 @@
 
             closeModal("movementModal");
 
-            showToast("Stock movement recorded!");
+            showToast("Movimentação registrada!");
         }
     );
 
@@ -1036,7 +1035,7 @@
         if (!product) return;
 
         const confirmed = confirm(
-            `Delete "${product.name}"? This action cannot be undone.`
+            `Excluir "${product.name}"? This action cannot be undone.`
         );
 
         if (!confirmed) return;
@@ -1046,14 +1045,14 @@
         saveData();
         render();
 
-        showToast("Product deleted.");
+        showToast("Produto excluído.");
     }
 
     function clearHistory() {
         if (!history.length) return;
 
         const confirmed = confirm(
-            "Clear all movement history? This cannot be undone."
+            "Limpar todo o histórico de movimentações? Esta ação não pode ser desfeita."
         );
 
         if (!confirmed) return;
@@ -1063,7 +1062,7 @@
         saveData();
         renderHistory();
 
-        showToast("History cleared.");
+        showToast("Histórico limpo.");
     }
 
     function closeModal(id) {
